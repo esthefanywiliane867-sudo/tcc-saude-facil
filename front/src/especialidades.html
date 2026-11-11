@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAUDEFACIL- Especialidades</title>
+  <style>
+    body { font-family:Arial,sans-serif; background:#f5f8fc; margin:0; color:#26364a; }
+    header { background:white; padding:22px 6%; }
+    .logo { color:#173d73; font-size:25px; font-weight:bold; }
+    .logo span { color:#168be8; }
+    main { max-width:950px; margin:35px auto; padding:30px; background:white; border-radius:15px; }
+    h1 { color:#173d73; }
+    input { width:100%; padding:14px; border:1px solid #dce5ef; border-radius:9px; box-sizing:border-box; margin:15px 0; }
+    .lista { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+    button { cursor:pointer; border-radius:10px; padding:17px 8px; border:1px solid #dce5ef; background:#edf6ff; color:#173d73; font-weight:bold; }
+    button:hover { border:2px solid #168be8; }
+    @media(max-width:700px) { main { margin:15px; padding:20px; } .lista { grid-template-columns:repeat(2,1fr); } }
+  </style>
+</head>
+<body>
+  <header><div class="logo">MED<span>SCHED</span></div></header>
+
+  <main>
+    <p>1. Especialidade　 2. Profissional　 3. Data e horário　 4. Confirmação</p>
+    <h1>Escolha a especialidade</h1>
+
+    <input id="busca" placeholder="⌕ Buscar especialidade..."
+           oninput="filtrar()">
+
+    <div class="lista" id="lista"></div>
+  </main>
+
+  <script>
+    const especialidades = [
+      "Clínico Geral", "Pediatria",
+      "Ginecologia", "Cardiologia",
+      "Dermatologia", "Ortopedia",
+      "Psiquiatria", "Oftalmologia"
+    ];
+
+    function mostrarEspecialidades(lista) {
+      document.getElementById("lista").innerHTML = "";
+
+      lista.forEach(nome => {
+        const botao = document.createElement("button");
+        botao.textContent = nome;
+
+        botao.onclick = () => {
+          localStorage.setItem("medsched-especialidade", nome);
+          location.href = "04_profissional.html";
+        };
+
+        document.getElementById("lista").appendChild(botao);
+      });
+    }
+
+    function filtrar() {
+      const termo = document.getElementById("busca").value.toLowerCase();
+      mostrarEspecialidades(
+        especialidades.filter(nome => nome.toLowerCase().includes(termo))
+      );
+    }
+
+    mostrarEspecialidades(especialidades);
+  </script>
+</body>
+</html>
