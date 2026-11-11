@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>SAUDEFACIL-Entrar</title>
+    <style>
+        body{ 
+            margin:0;
+            font-family: arial,sans-serif;
+            background: #f5f8fc;
+            color:#26364a;
+        }
+        header{
+            padding:22px 6%;
+            background:white;
+        }
+        .logo span{color:#168be8;}
+        main{
+            max-width:600px;
+            margin:45px auto;
+            padding:35px;
+            background:white;
+            border:1px solid #dce5ef;
+            border-radius:16px;
+            text-align:center;
+        }
+        h1{color:#173d73;}
+        input{
+            width:100%;
+            padding:14px;
+            margin:8px 0;
+            border:1px solid #dce5ef;
+            border-radius:9px;
+            box-sizing:border-box;
+        }
+        button{
+            width:100%;
+            padding:14px;
+            margin-top:10px;
+            border:0;
+            border-radius:9px;
+            cursor:pointer;
+            font-size:15px;
+        }
+        .entrar{
+            background:#168be8;
+            color:white;
+        }
+        .cadastro{
+            background:white;
+            border:1px solid #dce5ef;
+            color:#173d73;
+        }
+        @media(max-width:650px){
+            main
+            {margin:20px;
+             padding:22px;
+            }}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">SAUDE<span>FACIL</span></div>
+    </header>
+    <main>
+        <h1 id="titulo">Entrar na sua conta</h1>
+        <p>Acesse sua conta para Agendar e acompanhar suas consultas.</p>
+        <form onsubmit="entrar(event)">
+            <input id="email" type="text" placeholder="E-mail ou CPF" required>
+            <input id="senha" type="password" placeholder="Senha" required minlength="4">
+            <button class="entrar" id="botaoEntrar">Entrar</button>
+            <button class="cadastro" type="button" onclick="alternarCadastro()">
+                Criar nova conta
+            </button>
+        ,,,,,,,,,,,,,
+</html>
